@@ -1,0 +1,100 @@
+h1{
+	border-bottom: 1px solid #ccc;
+	height: 26px;
+	width: 1000px;
+	margin: 0 auto;
+}
+h1>a{
+	display: inline-block;
+	vertical-align: top;
+	font: normal normal normal 20px/26px "";
+}
+h1>img{
+	display:inline-block;
+	vertical-align: top;
+}
+h1>.goods{
+	float: right;
+	color: #fff;
+	width: 85px;
+	font: 16px/26px "";
+	background: rgb(196,57,38);
+	text-align: center;
+}
+.search{
+	height: 31px;
+	width: 1000px;
+	margin: 10px auto 0;
+	border: 1px solid #ddd;
+	background: #f3f3f3 url("/images/th_bg.gif") repeat-x;
+}
+.search button{
+	border: 0  none;
+	background: #ff3f3f;
+	border-radius: 3px;
+	width: 62px;
+	height: 27px;
+	color: #fff;
+}
+.search label{
+	font: 12px/23px "";
+}
+.search label input{
+	display: inline-block;
+	height: 23px;
+}
+/*标签*/
+table{
+	width: 1000px;
+	margin: 0 auto;
+}
+table th{
+	height: 39px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse;
+	background: #f3f3f3 url("/images/th_bg.gif") repeat-x;
+}
+table th:nth-of-type(1){
+	width: 50px;
+}
+table th:nth-of-type(2){
+	width: 150px;
+}
+table th:nth-of-type(3){
+	width: 150px;
+}
+table th:nth-of-type(4){
+	width: 100px;
+}
+table th:nth-of-type(5){
+	width: 50px;
+}
+table th:nth-of-type(6){
+	width: 50px;
+}
+table th:nth-of-type(7){
+	width: 50px;
+}
+table th:nth-of-type(8){
+	width: 50px;
+}
+table th:nth-of-type(9){
+	width: 75px;
+}
+table th:nth-of-type(10){
+	width: 50px;
+}
+table th:nth-of-type(11){
+	width: 75px;
+}
+table th:nth-of-type(12){
+	width: 125px;
+}
+table td{
+	height:50px ;
+	text-align: center;
+	vertical-align:middle;
+	border: 1px solid #dddddd;
+	border-collapse: collapse;
+	background: #fff;
+}

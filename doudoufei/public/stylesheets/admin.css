@@ -1,0 +1,176 @@
+body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,legend,input,button,textarea,p,blockquote,table,th,td,menu{margin: 0;padding: 0;} 
+span,i,em,u,strong,b,p,img,ul,li,div,dd,dt,dl,ol,table,th,td,h1,h2,h3,h4,h5,h6,input,textarea,button,small,select{cursor: pointer;} 
+h1,h2,h3,h4,h5,h6,input,textarea,select,address,caption,cite,code,dfn,em,i,b,strong,small,th,var,abbr{font-style:normal;font-weight:normal;}
+a{text-decoration: none;color: #000000;display: inline-block;}
+address, cite, dfn, em, var,i{font-style: normal;}
+article,aside,footer,header,hgroup,nav,section,figure,figcaption{display: block;}
+body{font: 14px "微软雅黑";    font: 12px Microsoft Yahei, "sans-serif", "Arial", "Verdana";background: #303030;}
+html,body{width:100%;}
+fieldset,img{border: 0;}
+menu,ol,ul,li{list-style: none;}
+*{  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+table{border-collapse:collapse;border-spacing:0;}
+/*:after{content:"";display:block;height:0;clear:both;overflow:hidden;visibility:hidden;}*/
+/*顶部菜单栏样式开始*/
+.menu_box{
+	height: 75px;
+	width: 100%;
+}
+.logo{
+	float: left;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+.menu{
+	float: right;
+}
+.menu li{
+	float: left;
+}
+.menu li a{
+	float: left;
+	display: block;
+	text-align: center;
+	height: 75px;
+	padding: 0 20px;
+	color: #ffffff;
+	font: 12px Microsoft Yahei, "sans-serif", "Arial", "Verdana";
+}
+.menu li a:hover{
+	background-color: rgb(64,64,64);
+}
+.menu li a img{
+	display: block;
+	width: 39px;
+	height: 35px;
+	margin: 8px auto 6px;
+}
+/*顶部导航栏开始*/
+.nav_box{
+	height: 41px;
+	width: 100%;
+	background: #575757;
+}
+.nav_box a{
+	display: block;
+	vertical-align: middle;
+	padding: 0 12px;
+	float: left;
+	color: #fff;
+}
+.nav_box a:hover{
+	background-color: rgb(69,69,69);
+}
+.nav_box a span{
+	display: inline-block;
+	font: 12px/41px "";
+}
+.nav_box a i{
+	display: inline-block;
+	text-align: center;
+	height: 16px;
+	width: 32px;
+	margin-left: 10px;
+	border-radius: 8px;
+	background: #ff0000;
+}
+.nav_box a img{
+	display: inline-block;
+	vertical-align: middle;
+	height: 16px;
+	width: 16px;
+	margin-right: 10px;
+}
+/*主要内容区开始*/
+.sidebar{
+	width: 180px;
+	height: 560px;
+	float: left;
+	overflow: auto;
+	background: white;
+}
+.sidebar>li{
+	text-indent: 40px;
+	border-top: #7f7f7f 1px solid;
+	font: 12px/42px "";
+	width: 163px;
+	color: #fff;
+	background: #575757 url(/images/menu_1.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(2){
+	background: #575757 url(/images/menu_2.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(3){
+	background: #575757 url(/images/menu_3.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(4){
+	background: #575757 url(/images/menu_4.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(5){
+	background: #575757 url(/images/menu_5.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(6){
+	background: #575757 url(/images/menu_6.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(7){
+	background: #575757 url(/images/menu_7.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(8){
+	background: #575757 url(/images/menu_8.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(9){
+	background: #575757 url(/images/menu_9.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(10){
+	background: #575757 url(/images/menu_10.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(11){
+	background: #575757 url(/images/menu_11.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(12){
+	background: #575757 url(/images/menu_12.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(13){
+	background: #575757 url(/images/menu_13.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(14){
+	background: #575757 url(/images/menu_14.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(15){
+	background: #575757 url(/images/menu_15.png) 9px 0 no-repeat;
+}
+.sidebar>li:nth-child(16){
+	background: #575757 url(/images/menu_16.png) 9px 0 no-repeat;
+}
+.sidebar>li:hover{
+	background-color: rgb(69,69,69);
+}
+.sidebar ul{
+	/*display: none;*/
+}
+.sidebar ul li a{
+	display: block;
+	text-align: center;
+	text-indent: -40px;
+	color: #fff;
+	font: 12px/30px "";
+	background: #575757;
+}
+.sidebar ul li a:hover{
+	background-color: rgb(121,121,121);
+}
+.sidebar .active_a{
+	background-color: rgb(121,121,121);
+}
+.main{
+	height: 560px;
+	overflow: auto;
+	background: url(/images/body_bj.jpg) repeat;
+
+}
