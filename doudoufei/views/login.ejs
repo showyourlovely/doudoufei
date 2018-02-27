@@ -1,11 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/login.css'/>
+    <link rel="stylesheet" type="text/css" href='/font/iconfont.css'>
+    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <img src="/images/shopex.png" class="logo01">
+    <img src="/images/ecshop-logo.png" class="logo02">
+
+    <div class="login">
+      <label>
+        <i class="iconfont icon-lianxirendengluzhanghao"></i>
+        <input type="text" id="username" placeholder="用户名">
+      </label>
+      <label>
+        <i class="iconfont icon-password_icon"></i>
+        <input type="password" id="psd" placeholder="密码">
+      </label>
+      <label>
+        <i class="iconfont icon-ecurityCode"></i>
+        <input type="text" id="verify" placeholder="验证码">
+        <span id="code">jd5o</span>
+      </label>
+      <label>
+        <input type="button" value="登录" id="btn">
+      </label>
+      <div>
+        <input type="checkbox" name="">保存登录信息
+        <a href="">忘记密码？</a>
+        <a href="">去店铺首页</a>
+      </div>
+    </div>
+  		
   </body>
 </html>
+<script type="text/javascript">
+  function fn() {
+    // body...
+    let code = Math.random().toString(16).substr(2,4);
+    $("#code").html(code);
+  }
+  fn();
+  $("#code").on("click",function () {
+    // body...
+    fn();
+  })
+  $("#btn").on("click",function(){
+    // body...
+    if( $("#verify").val() && $("#verify").val()==$("#code").html() ){
+    }else{
+      alert("请输入正确的验证码");
+      fn();
+      return;
+    }
+    console.log("验证码对了，post，然后");
+    $.ajax({
+        url: "/api/login",
+        type: "post",
+        data: {
+          "username":$("#username").val(),
+          "psd":$("#psd").val()
+        },
+        success: function (res) {
+          // body...
+          console.log(res);
+        }
+     })
+  })
+</script>

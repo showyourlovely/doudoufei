@@ -169,8 +169,12 @@ table{border-collapse:collapse;border-spacing:0;}
 	background-color: rgb(121,121,121);
 }
 .main{
+	display: block;
+	border: 0 none;
 	height: 560px;
+	min-width: 1080px;
 	overflow: auto;
+	margin-left: 180px;
 	background: url(/images/body_bj.jpg) repeat;
 
 }

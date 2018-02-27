@@ -5,7 +5,7 @@ a{text-decoration: none;color: #000000;display: inline-block;}
 address, cite, dfn, em, var,i{font-style: normal;}
 article,aside,footer,header,hgroup,nav,section,figure,figcaption{display: block;}
 body{font: 14px "微软雅黑";    font: 12px Microsoft Yahei, "sans-serif", "Arial", "Verdana";background: #303030;}
-html,body{width:100%;}
+html,body{width:100%;height: 100%;}
 fieldset,img{border: 0;}
 menu,ol,ul,li{list-style: none;}
 *{  -webkit-touch-callout: none;
@@ -17,137 +17,93 @@ menu,ol,ul,li{list-style: none;}
 }
 table{border-collapse:collapse;border-spacing:0;}
 /*:after{content:"";display:block;height:0;clear:both;overflow:hidden;visibility:hidden;}*/
-/*顶部菜单栏样式开始*/
-.menu_box{
-	height: 75px;
-	width: 100%;
+body{
+	background: url(/images/ecshop-bg.png) no-repeat center center/cover;
 }
-.logo{
-	float: left;
-	margin-top: 20px;
+.login{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    width: 302px;
+    height: 321px;
+    background: #fff;
+    background: rgba(255,255,255,.85);
+    border: none;
+    border-radius: 0;
+    color: #A1A1A1;
+    padding: 50px 70px 0;
+    overflow: hidden;
+    box-shadow: 5px 2px 20px rgba(0,0,0,.3);
+    height: 322px;
+    transform: translateX(-50%) translateY(-50%);
+}
+.login label{
+	position: relative;
+	display: block;
+	width: 300px;
+	height: 50px;
+}
+.login label i{
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 20px;
+	height:20px;
+	z-index: 10;
+}
+.login label input{
+	display: block;
+	width: 300px;
+	height: 50px;
+	border: 0 none;
+	outline: 0 none;
+	border-radius: 3px;
+	margin: 2px auto;
+	text-indent: 40px;
+}
+.login label:nth-child(4){
+	margin: 20px 0 10px;
+}
+.login label:nth-child(3){
+	position: relative;
+}
+.login label:nth-child(3) span{
+	display: block;
+	width: 106px;
+	height: 36px;
+	position: absolute;
+	font: 36px/36px "";
+	color: black;
+	text-align: center;
+	background: url(/images/index.png) no-repeat center center/cover;
+	right: 0;
+	top: 7px;
+	z-index: 10;
+}
+.login div a{
 	margin-left: 30px;
 }
-.menu{
-	float: right;
+#btn{
+	text-indent: 0;
+    color: #FFF;
+    border-radius: 4px;
+    letter-spacing: 4px;
+    font-size: 16px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #fc7878;
 }
-.menu li{
-	float: left;
+.logo01{
+	position: absolute;
+	top: 0;
+	left: 0;
 }
-.menu li a{
-	float: left;
-	display: block;
-	text-align: center;
-	height: 75px;
-	padding: 0 20px;
-	color: #ffffff;
-	font: 12px Microsoft Yahei, "sans-serif", "Arial", "Verdana";
-}
-.menu li a img{
-	display: block;
-	width: 39px;
-	height: 35px;
-	margin: 8px auto 6px;
-}
-/*顶部导航栏开始*/
-.nav_box{
-	height: 41px;
-	width: 100%;
-	background: #575757;
-}
-.nav_box a{
-	display: block;
-	vertical-align: middle;
-	padding: 0 12px;
-	float: left;
-	color: #fff;
-}
-.nav_box a span{
-	display: inline-block;
-	font: 12px/41px "";
-}
-.nav_box a i{
-	display: inline-block;
-	text-align: center;
-	height: 16px;
-	width: 32px;
-	margin-left: 10px;
-	border-radius: 8px;
-	background: #ff0000;
-}
-.nav_box a img{
-	display: inline-block;
-	vertical-align: middle;
-	height: 16px;
-	width: 16px;
-	margin-right: 10px;
-}
-/*主要内容区开始*/
-.sidebar{
-	width: 180px;
-	height: 560px;
-	float: left;
-	overflow: auto;
-	background: white;
-}
-.sidebar>li{
-	text-indent: 40px;
-	border-top: #7f7f7f 1px solid;
-	font: 12px/42px "";
-	width: 163px;
-	color: #fff;
-	background: #575757 url(/images/menu_1.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(2){
-	background: #575757 url(/images/menu_2.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(3){
-	background: #575757 url(/images/menu_3.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(4){
-	background: #575757 url(/images/menu_4.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(5){
-	background: #575757 url(/images/menu_5.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(6){
-	background: #575757 url(/images/menu_6.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(7){
-	background: #575757 url(/images/menu_7.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(8){
-	background: #575757 url(/images/menu_8.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(9){
-	background: #575757 url(/images/menu_9.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(10){
-	background: #575757 url(/images/menu_10.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(11){
-	background: #575757 url(/images/menu_11.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(12){
-	background: #575757 url(/images/menu_12.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(13){
-	background: #575757 url(/images/menu_13.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(14){
-	background: #575757 url(/images/menu_14.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(15){
-	background: #575757 url(/images/menu_15.png) 9px 0 no-repeat;
-}
-.sidebar>li:nth-child(16){
-	background: #575757 url(/images/menu_16.png) 9px 0 no-repeat;
-}
-.sidebar ul li{
-	font: 12px/30px "";
-}
-.main{
-	height: 560px;
-	overflow: auto;
-	background: url(/images/body_bj.jpg) repeat;
-
+.logo02{
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	width: 248px;
+	height: 65px;
+	transform: translateX(-50%);
 }
