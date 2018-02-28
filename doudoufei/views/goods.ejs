@@ -22,39 +22,43 @@
 			<button>搜索</button>
 		</div>
 		<table>
-			<tr>
-				<th><input type="checkbox">编号</th>
-				<th>商品名称</th>
-				<th>货号</th>
-				<th>价格</th>
-				<th>上架</th>
-				<th>精品</th>
-				<th>新品</th>
-				<th>热销</th>
-				<th>推荐排序</th>
-				<th>库存</th>
-				<th>虚拟销量</th>
-				<th>操作</th>
-			</tr>
-			<tr class="liangchen">
-				<td><input type="checkbox">255</td>
-				<td>金刚钻</td>
-				<td>123456</td>
-				<td>99999999.00</td>
-				<td><img src="/images/yes.gif" alt=""></td>
-				<td><img src="/images/yes.gif" alt=""></td>
-				<td><img src="/images/yes.gif" alt=""></td>
-				<td><img src="/images/yes.gif" alt=""></td>
-				<td>100</td>
-				<td>1</td>
-				<td>0</td>
-				<td>
-					<a href=""><img src="/images/icon_view.gif" alt=""></a>
-					<a href=""><img src="/images/icon_edit.gif" alt=""></a>
-					<a href=""><img src="/images/icon_copy.gif" alt=""></a>
-					<a href=""><img src="/images/icon_trash.gif" alt=""></a>
-				</td>
-			</tr>
+			<thead>
+				<tr>
+					<th><input type="checkbox">编号</th>
+					<th>商品名称</th>
+					<th>货号</th>
+					<th>价格</th>
+					<th>上架</th>
+					<th>精品</th>
+					<th>新品</th>
+					<th>热销</th>
+					<th>推荐排序</th>
+					<th>库存</th>
+					<th>虚拟销量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="liangchen">
+					<td><input type="checkbox">255</td>
+					<td>金刚钻</td>
+					<td>123456</td>
+					<td>99999999.00</td>
+					<td><img src="/images/yes.gif" alt=""></td>
+					<td><img src="/images/yes.gif" alt=""></td>
+					<td><img src="/images/yes.gif" alt=""></td>
+					<td><img src="/images/yes.gif" alt=""></td>
+					<td>100</td>
+					<td>1</td>
+					<td>0</td>
+					<td>
+						<a href=""><img src="/images/icon_view.gif" alt=""></a>
+						<a href=""><img src="/images/icon_edit.gif" alt=""></a>
+						<a href=""><img src="/images/icon_copy.gif" alt=""></a>
+						<a href=""><img src="/images/icon_trash.gif" alt=""></a>
+					</td>
+				</tr>
+			</tbody>
 		</table>
 	</div>
   </body>
@@ -88,5 +92,14 @@
 					</td>
 			</tr>`
 	<%}%>
-	$("table").append(html)
+	$("tbody").html(html)
+	
+	$.ajax({
+		url: "/api/shiyan",
+		type: "post",
+		success: function (res) {
+			// body...
+			console.log(res);
+		}
+	})
 </script>

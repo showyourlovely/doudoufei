@@ -5,7 +5,7 @@ a{text-decoration: none;color: #000000;display: inline-block;}
 address, cite, dfn, em, var,i{font-style: normal;}
 article,aside,footer,header,hgroup,nav,section,figure,figcaption{display: block;}
 body{font: 14px "微软雅黑";    font: 12px Microsoft Yahei, "sans-serif", "Arial", "Verdana";background: #303030;}
-html,body{width:100%;}
+html,body{width:100%;overflow: hidden;}
 fieldset,img{border: 0;}
 menu,ol,ul,li{list-style: none;}
 *{  -webkit-touch-callout: none;

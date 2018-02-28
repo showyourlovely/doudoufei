@@ -66,6 +66,9 @@
         },
         success: function (res) {
           // body...
+          if(res.status == 1){
+            location.href="/admin";
+          }
           console.log(res);
         }
      })

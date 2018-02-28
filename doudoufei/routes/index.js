@@ -6,7 +6,12 @@ var UserModel = require('../model/UserModel');
 var GoodsModel = require('../model/GoodsModel');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '首页' });
+  if(req.session && req.session.username!=null){
+    res.render('index', { title: '首页' });
+  }else{
+    res.redirect('/login')
+  }
+  
 });
 router.get('/login', function(req, res, next) {
   res.render('login', { title: '登录' });
@@ -22,6 +27,7 @@ router.post('/api/login', function(req,res,next) {
   UserModel.find({"username":username,"psd":psd},function (err,docs) {
     // 返回result...
     if(!err && docs.length>0){
+      req.session.username = username;
       res.send(result);
     }else{
       result.status = -999;
@@ -31,7 +37,11 @@ router.post('/api/login', function(req,res,next) {
   })
 })
 router.get('/admin', function(req, res, next) {
-  res.render('admin', { title: '后台管理' });
+  if(req.session && req.session.username!=null){
+    res.render('admin', { title: '后台管理' }); 
+  }else{
+    res.redirect('/login')
+  }
 });
 router.get('/admin/goods', function(req, res, next) {
   GoodsModel.find({},function (err,docs) {
@@ -51,7 +61,6 @@ router.post('/api/goods_add', function(req,res,next) {
   	var price = fields.price[0];
   	var imgsPath = files.imgs[0].path;
   	var imgsName = imgsPath.substr(imgsPath.lastIndexOf("\\")+1);
-    console.log(imgsPath);
   	var gm = new GoodsModel();
   	gm.goods_name = goods_name;
   	gm.price = price;
@@ -63,6 +72,15 @@ router.post('/api/goods_add', function(req,res,next) {
     		res.send("失败");
       }
   	})
+  })
+})
+router.post("/api/shiyan",function (req,res,next) {
+  // body...
+  GoodsModel.find({},function (err,docs) {
+    // body...
+    if(!err){
+      res.send(docs);
+    }
   })
 })
 module.exports = router;
