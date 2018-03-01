@@ -14,7 +14,7 @@
 			<img src="/images/jnsy.png" alt="">
 		</h1>
 		<ul class="form_control">
-			<li>通用信息</li>
+			<li class="form_control_active">通用信息</li>
 			<li>详细描述</li>
 			<li>其他信息</li>
 			<li>商品属性</li>
@@ -24,12 +24,14 @@
 			<li>关联文章</li>
 		</ul>
 		<form action="/api/goods_add" method="post" enctype="multipart/form-data">
-			<label for=""><span>商品名称：</span><input type="text" name="goods_name"></label>
-			<label for=""><span>商品价格：</span><input type="text" name="price"></label>
-			<label for=""><span>商品图片：</span><input type="file" name="imgs"></label>
+			<label for=""><span>商品名称：</span><input type="text" name="goods_name" id="goods_name"></label>
+			<label for=""><span>商品编码：</span><input type="number" name="goods_code" id="goods_code"></label>
+			<label for=""><span>商品库存：</span><input type="number" name="counts" id="counts"></label>
+			<label for=""><span>商品价格：</span><input type="number" name="price" id="price"></label>
+			<label for=""><span>商品图片：</span><input type="file" name="imgs" id="imgs"></label>
 			<div>
 				<span>商品详情：</span><br>
-				<textarea name="detail" id="" cols="30" rows="5"></textarea>
+				<textarea name="details" id="details" cols="30" rows="5"></textarea>
 			</div>
 			<button type="submit">上传</button>
 		</form>
@@ -37,3 +39,21 @@
   </body>
 </html>
 <script src='/javascripts/public.js '></script>
+<script type="text/javascript">
+	$("form").on("submit",function(){
+		if( $("#goods_name").val() && $("#goods_name").val().length>0 && $("#goods_code").val().length>0 && $("#price").val().length>0 && $("#counts").val().length>0 ){
+			return true;
+		}
+		$("#goods_name").attr("placeholder","请输入商品名");
+		$("#goods_code").attr("placeholder","请输入商品码");
+		$("#counts").attr("placeholder","请输入数量");
+		$("#price").attr("placeholder","请输入价格");
+		return false;
+	})
+	$(".form_control").on("click","li",function () {
+		// body...
+		$(this).addClass("form_control_active")
+				.siblings()
+				.removeClass()
+	})
+</script>

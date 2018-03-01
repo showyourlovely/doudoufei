@@ -63,6 +63,9 @@ h1>.goods{
 	font: 12px/39px  "";
 	text-align: center;
 }
+.form_control .form_control_active{
+	background: #fff;
+}
 /*表单样式*/
 form{
 	width: 1000px;

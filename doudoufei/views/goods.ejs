@@ -18,8 +18,8 @@
 			<select name="" id=""><option value="">所有品牌</option></select>
 			<select name="" id=""><option value="">全部</option></select>
 			<select name="" id=""><option value="">全部</option></select>
-			<label for="">关键字<input type="text">	</label>
-			<button>搜索</button>
+			<label for="">关键字<input type="text" id="text_search"></label>
+			<button id="btn_search">搜索</button>
 		</div>
 		<table>
 			<thead>
@@ -55,51 +55,105 @@
 						<a href=""><img src="/images/icon_view.gif" alt=""></a>
 						<a href=""><img src="/images/icon_edit.gif" alt=""></a>
 						<a href=""><img src="/images/icon_copy.gif" alt=""></a>
-						<a href=""><img src="/images/icon_trash.gif" alt=""></a>
+						<a href=""><img src="/images/icon_trash.gif" alt="" class="del"></a>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		<p class="pages">
+			共<span id="pages01"></span>个商品
+			分<span id="pages02"></span>页显示
+			<span id="pages03">上一页</span>
+			<span id="pages04">下一页</span>
+			第<select id="pages05">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+			</select>页
+		</p>
 	</div>
   </body>
 </html>
 <script src='/javascripts/public.js '></script>
 <script type="text/javascript">
-	var html = "";
-	<%for (var i = list.length - 1; i >= 0; i--) {%>
-		// console.log(("#liangchen").colne())$
-		// console.log(<%= list[i].goods_name %>）
-		// var gm = $(".liangchen").clone();
-		// $("table").append(gm);
-		html+=
-			`<tr class="liangchen">
-					<td><input type="checkbox">255</td>
-					<td><%= list[i].goods_name %></td>
-					<td>123456</td>
-					<td><%= list[i].price %></td>
-					<td><img src="/images/yes.gif" alt=""></td>
-					<td><img src="/images/yes.gif" alt=""></td>
-					<td><img src="/images/yes.gif" alt=""></td>
-					<td><img src="/images/yes.gif" alt=""></td>
-					<td>100</td>
-					<td>1</td>
-					<td>0</td>
-					<td>
-						<a href=""><img src="/images/icon_view.gif" alt=""></a>
-						<a href=""><img src="/images/icon_edit.gif" alt=""></a>
-						<a href=""><img src="/images/icon_copy.gif" alt=""></a>
-						<a href=""><img src="/images/icon_trash.gif" alt=""></a>
-					</td>
-			</tr>`
-	<%}%>
-	$("tbody").html(html)
-	
-	$.ajax({
-		url: "/api/shiyan",
-		type: "post",
-		success: function (res) {
-			// body...
-			console.log(res);
+	$("#pages05").on("change",function(){
+		n = $("#pages05").val();
+		goods();
+	})
+	$("#pages04").on("click",function(){
+		n += 1;
+		goods();
+	})
+	$("#pages03").on("click",function(){
+		n -= 1;
+		goods();
+	})
+	var n = 1 ;
+	function goods() {
+		// body...
+		$.ajax({
+			url: '/api/shiyan',
+			type: 'post',
+			data: {
+				name:$("#text_search").val()
+			},
+			success: function (res) {
+				// body...
+				var html = "";
+				var page = "";
+				n = Math.max(Math.min(3,n),1);
+				for(var i = 5*(n-1) ; i <= 5*n-1 ; i++){
+					html+=
+					`<tr class="liangchen">
+							<td><input type="checkbox">${res[i].goods_code}</td>
+							<td>${res[i].goods_name}</td>
+							<td>123456</td>
+							<td>${res[i].price}</td>
+							<td><img src="/images/yes.gif" alt=""></td>
+							<td><img src="/images/yes.gif" alt=""></td>
+							<td><img src="/images/yes.gif" alt=""></td>
+							<td><img src="/images/yes.gif" alt=""></td>
+							<td>100</td>
+							<td>${res[i].counts}</td>
+							<td>0</td>
+							<td>
+								<a href=""><img src="/images/icon_view.gif" alt=""></a>
+								<a href=""><img src="/images/icon_edit.gif" alt=""></a>
+								<a href=""><img src="/images/icon_copy.gif" alt=""></a>
+								<a href="javascript:;"><img src="/images/icon_trash.gif" alt="" class="del" 
+									data-goods_name=${res[i].goods_name}></a>
+							</td>
+					</tr>`
+					$("tbody").html(html);
+					var max_pages = Math.ceil(res.length/5);
+					$("#pages01").text(res.length);
+					$("#pages02").text( max_pages );
+				}
+			}
+		})
+	}
+	goods();
+	$("#btn_search").on("click",function() {
+		// body...
+		goods();
+	})
+	$("tbody").on("click",".del",function () {
+		// body...
+		console.log( $(this).data("goods_name")+"被点击了" );
+		if( confirm("确定要删除么？") ){
+			$.ajax({
+				url: '/api/trash',
+				type: 'post',
+				data: {
+					goods_name:$(this).data("goods_name")
+				},
+				success: function(res){
+					console.log(res)
+				}
+			})
+		}else{
+			return;
 		}
+		
 	})
 </script>

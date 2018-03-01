@@ -44,10 +44,7 @@ router.get('/admin', function(req, res, next) {
   }
 });
 router.get('/admin/goods', function(req, res, next) {
-  GoodsModel.find({},function (err,docs) {
-    // body...
-    res.render('goods', { list: docs});
-  })
+  res.render('goods', {});
 });
 router.get('/admin/goods_add', function(req, res, next) {
   res.render('goods_add', { title: '后台管理-商品添加' });
@@ -58,11 +55,17 @@ router.post('/api/goods_add', function(req,res,next) {
   });
   form.parse(req,function(err,fields,files){
   	var goods_name = fields.goods_name[0];
+    var goods_code = fields.goods_code[0];
+    var details = fields.details[0];
+    var counts = fields.counts[0];
   	var price = fields.price[0];
   	var imgsPath = files.imgs[0].path;
   	var imgsName = imgsPath.substr(imgsPath.lastIndexOf("\\")+1);
   	var gm = new GoodsModel();
   	gm.goods_name = goods_name;
+    gm.goods_code = goods_code;
+    gm.details = details;
+    gm.counts = counts;
   	gm.price = price;
   	gm.imgs = imgsName;
   	gm.save(function(err){
@@ -74,13 +77,22 @@ router.post('/api/goods_add', function(req,res,next) {
   	})
   })
 })
-router.post("/api/shiyan",function (req,res,next) {
+router.post('/api/shiyan',function (req,res,next) {
   // body...
-  GoodsModel.find({},function (err,docs) {
+  GoodsModel.find({goods_name:{$regex:req.body.name}},function (err,docs) {
     // body...
     if(!err){
       res.send(docs);
     }
   })
+})
+router.post('/api/trash',function(req,res,next) {
+  if(req){
+    GoodsModel.remove({goods_name:req.body.goods_name},function(err,docs){
+      res.send(docs);
+    })
+  }else{
+    return;
+  }
 })
 module.exports = router;

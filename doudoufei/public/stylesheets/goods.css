@@ -126,3 +126,12 @@ table td{
 	border-collapse: collapse;
 	background: #fff;
 }
+.pages{
+	width: 1000px;
+	margin: 10px auto;
+	text-align: right;
+}
+.pages span{
+	display: inline-block;
+	padding: 0 10px;
+}

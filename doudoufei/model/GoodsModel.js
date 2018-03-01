@@ -4,8 +4,10 @@ var Schema = mongoose.Schema;
 // 创建文档的定义
 var Goods = new Schema({
     goods_name  : String,
+    goods_code  : String,
+    details     : String,
+    counts      : String,
     price       : String,
-    detail      : String,
     imgs	    : String,
     create_date : { type: Date, default: Date.now }
 });
