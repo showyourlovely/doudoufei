@@ -88,7 +88,7 @@ router.post('/api/shiyan',function (req,res,next) {
 })
 router.post('/api/trash',function(req,res,next) {
   if(req){
-    GoodsModel.remove({goods_name:req.body.goods_name},function(err,docs){
+    GoodsModel.remove({goods_name:req.body.goods_name,_id:req.body.gid},function(err,docs){
       res.send(docs);
     })
   }else{

@@ -23,7 +23,7 @@
 			<li>配件</li>
 			<li>关联文章</li>
 		</ul>
-		<form action="/api/goods_add" method="post" enctype="multipart/form-data">
+		<form class="form" action="/api/goods_add" method="post" enctype="multipart/form-data">
 			<label for=""><span>商品名称：</span><input type="text" name="goods_name" id="goods_name"></label>
 			<label for=""><span>商品编码：</span><input type="number" name="goods_code" id="goods_code"></label>
 			<label for=""><span>商品库存：</span><input type="number" name="counts" id="counts"></label>
@@ -40,7 +40,7 @@
 </html>
 <script src='/javascripts/public.js '></script>
 <script type="text/javascript">
-	$("form").on("submit",function(){
+	$(".form").on("submit",function(){
 		if( $("#goods_name").val() && $("#goods_name").val().length>0 && $("#goods_code").val().length>0 && $("#price").val().length>0 && $("#counts").val().length>0 ){
 			return true;
 		}
